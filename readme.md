@@ -1,6 +1,6 @@
 # 疫情期间excel分类统计自动化
 为了帮助广大老师简化工作流程,特地学了几天的PYTHON,水平不高,多多包涵
-
+范例数据全部虚拟化,保护隐私
 ## 开发环境安装
 1. 安装python3.8 
     - [Download](https://github.com/3038922/new_century_robotics/releases/download/v1.0/python-3.8.1-amd64.exe)
