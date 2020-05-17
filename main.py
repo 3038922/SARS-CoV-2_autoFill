@@ -21,7 +21,7 @@ dict4 = {"总数": 0, "因发热未到或请假": 0, "因咳嗽腹泄乏力请�
 班级 = ""
 晨检午检异常描述 = ""
 for cell in wb["晨检异常登记"]["C"]:
-    if(cell.value != "")and (cell.value != "姓名"):
+    if(cell.value != "") and (cell.value != "姓名"):
         dict1["总数"] += 1
         if(wb["晨检异常登记"].cell(cell.row, 4).value != "否") and (wb["请假学生登记"].cell(cell.row, 4).value != "无"):
             dict1["体温异常"] += 1
@@ -33,7 +33,7 @@ for cell in wb["晨检异常登记"]["C"]:
         dict1["详情"].append(
             [班级, cell.value, wb["晨检异常登记"].cell(cell.row, 4).value, wb["晨检异常登记"].cell(cell.row, 5).value])
 for cell in wb["学生接触外省人员登记"]["C"]:
-    if(cell.value != "")and (cell.value != "姓名"):
+    if(cell.value != "") and (cell.value != "姓名"):
         dict2["总数"] += 1
         for it in wb["主表"]["Q"]:
             if (str(it.value).find(cell.value) >= 0):
@@ -42,7 +42,7 @@ for cell in wb["学生接触外省人员登记"]["C"]:
         dict2["详情"].append([班级, cell.value, wb["学生接触外省人员登记"].cell(cell.row, 4).value,  wb["学生接触外省人员登记"].cell(
             cell.row, 5).value,  wb["学生接触外省人员登记"].cell(cell.row, 6).value])
 for cell in wb["家长接触重点疫区、境外登记"]["C"]:
-    if(cell.value != "")and (cell.value != "姓名"):
+    if(cell.value != "") and (cell.value != "姓名"):
         dict3["总数"] += 1
         for it in wb["主表"]["Q"]:
             if (str(it.value).find(cell.value) >= 0):
@@ -51,7 +51,7 @@ for cell in wb["家长接触重点疫区、境外登记"]["C"]:
         dict3["详情"].append([班级, cell.value, wb["家长接触重点疫区、境外登记"].cell(cell.row, 4).value, wb["家长接触重点疫区、境外登记"].cell(
             cell.row, 5).value, wb["家长接触重点疫区、境外登记"].cell(cell.row, 6).value])
 for cell in wb["请假学生登记"]["C"]:
-    if(cell.value != "")and (cell.value != "姓名"):
+    if(cell.value != "") and (cell.value != "姓名"):
         dict4["总数"] += 1
         if(wb["请假学生登记"].cell(cell.row, 4).value != "否") and (wb["请假学生登记"].cell(cell.row, 4).value != "无"):
             dict4["因发热未到或请假"] += 1
