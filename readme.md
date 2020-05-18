@@ -18,3 +18,8 @@
 5. 根据实际情况自己修改
 ![avatar](./pic/2.jpg)
 6. 命令行里执行 `python3.8 ./main.py` 
+
+### pyinstaller配置说明
+- 生成一大堆 `pyinstaller main.py`
+- 生成单exe `pyinstaller -F main.py`
+- 生成带图标文件的EXE `pyinstaller -F -i ./pic/机器人标.ico main.py`
