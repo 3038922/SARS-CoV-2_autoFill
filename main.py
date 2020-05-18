@@ -3,7 +3,7 @@ from openpyxl.styles import Font
 from openpyxl.styles import colors
 
 ########自定义配置#############
-inputFileName = "机器人社疫情日报.xlsx"  # 要打开的excel源文件名字
+inputFileName = "机器人社日报.xlsx"  # 要打开的excel源文件名字
 ouputFilename = "整理后.xlsx"  # 要输出的excel文件名字
 学校名称 = "机器人社"
 应到人数 = 2024  # 全校应到学生人数
