@@ -1,14 +1,17 @@
-import openpyxl
+#encoding='UTF-8'
+import openpyxl # excel操作模块
+import configparser # 导入配置.ini模块
 from openpyxl.styles import Font
 from openpyxl.styles import colors
 
-########自定义配置#############
-inputFileName = "机器人社日报.xlsx"  # 要打开的excel源文件名字
-ouputFilename = "整理后.xlsx"  # 要输出的excel文件名字
-学校名称 = "机器人社"
-应到人数 = 2024  # 全校应到学生人数
-########自定义配置############
-
+config = configparser.ConfigParser() # 类实例化
+# 定义文件路径
+path = 'config.ini'
+config.read(path,encoding='UTF-8')
+inputFileName = config.get('select','inputFileName')
+ouputFilename = config.get('select','ouputFilename')
+学校名称 = config.get('select','schoolName')
+应到人数 =config.getint('select','stuTotal')
 # 读取表格
 wb = openpyxl.load_workbook(inputFileName)
 # 显示所有表单
