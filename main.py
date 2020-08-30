@@ -12,7 +12,11 @@ def main(argv=None):
     inputFileName = config.get('select', 'inputFileName')
     ouputFilename = config.get('select', 'ouputFilename')
     学校名称 = config.get('select', 'schoolName')
-    应到人数 = config.getint('select', 'stuTotal')
+    内地学生数 = config.getint('select', 'mainlandStu')
+    港澳台学生数 = config.getint('select', 'hkMacaoTwStu')
+    留学生 = config.getint('select', 'overseasStu')
+    合计 = 内地学生数 + 港澳台学生数 + 留学生
+    应到人数 = config.getint('select', 'arriveStu')
     # 读取表格
     wb = openpyxl.load_workbook(inputFileName)
     # 显示所有表单
@@ -98,13 +102,15 @@ def main(argv=None):
     for cell in dict4["详情"]:
         wbNEW["请假学生"].append(cell)
     wbNEW["综合统计"].append([
-        "学校名称", "应到人数", "实到人数", "请假学生登记人数总数", "因发热未到或请假", "因咳嗽腹泄乏力请假人数", "因其他原因请假人数", "晨检异常人数总数",
-        "晨检体温异常人数", "晨检其他异常人数", "晨检午检异常描述(文字)", "学生接触外省人员登记人数总数", "家长接触重点疫区、境外登记人数总数"
+        "学校名称", "数据为后三列之和，即内地学生+港澳台+留学生", "内地学生数", "港澳台学生数", "留学生数", "合计中的当日校内发热学生人数",
+        "应到人数（要求到校人数）", "实到人数（晨检人数）", "因发热未到或请假（体温37.3或以上）", "因其他原因未到或请假（除发热外）", "校内晨检异常人数（体温异常）",
+        "校内晨检异常其他人数（如：咳嗽、腹泻等）", "当日校内因发热送检人数（体温37.3或以上）", "总计", "绿码人数", "黄码人数", "橙码人数", "未申领人数",
+        "接触过省外返衢对象的(学生数)", "接触过境外返衢对象的(学生数)", "与疫情中高风险地区、境外回衢人员接触的家长人数统计"
     ])
     wbNEW["综合统计"].append([
-        学校名称, 应到人数, 应到人数 - dict4["总数"], dict4["总数"], dict4["因发热未到或请假"], dict4["因咳嗽腹泄乏力请假人数"],
-        dict4["因其他原因请假人数"], dict1["总数"], dict1["体温异常"], dict1["其他异常"], 晨检午检异常描述, dict2["总数"],
-        dict3["总数"]
+        学校名称, 合计, 内地学生数, 港澳台学生数, 留学生, 应到人数 - dict4["总数"], 应到人数, dict4["总数"], dict4["因发热未到或请假"],
+        dict4["因咳嗽腹泄乏力请假人数"] + dict4["因其他原因请假人数"], dict1["总数"], dict1["体温异常"], dict1["其他异常"],
+        晨检午检异常描述, dict2["总数"], dict3["总数"]
     ])
     wbNEW.save(ouputFilename)
 
