@@ -9,5 +9,13 @@
     ],
     "python.linting.pylintArgs": [
         "--load-plugins"
+    ],
+    "cSpell.ignoreWords": [
+        "colnum",
+        "dict",
+        "get",
+        "get num colnum dict",
+        "num",
+        "openpyxl"
     ]
 }
