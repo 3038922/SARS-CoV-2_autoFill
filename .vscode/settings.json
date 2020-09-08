@@ -16,6 +16,7 @@
         "get",
         "get num colnum dict",
         "num",
-        "openpyxl"
+        "openpyxl",
+        "pyinstaller"
     ]
 }
